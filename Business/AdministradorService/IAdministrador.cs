@@ -14,6 +14,7 @@ namespace AdministradorService
     public interface IAdministrador
     {
         [OperationContract]
+        [FaultContract(typeof(RepetidoException))]
         AdministradorDOM Autenticar(string NroDocumento, string Contrasenia);
 
         [FaultContract(typeof(RepetidoException))]

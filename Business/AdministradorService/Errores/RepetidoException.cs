@@ -3,12 +3,12 @@ namespace AdministradorService.Errores
 {
     using System.Runtime.Serialization;
 
-    [DataContract]
+    //[DataContract]
     public class RepetidoException
     {
-        [DataMember]
+        //[DataMember]
         public string Codigo { get; set; }
-        [DataMember]
+        //[DataMember]
 
         public string Descripcion { get; set; } 
     }

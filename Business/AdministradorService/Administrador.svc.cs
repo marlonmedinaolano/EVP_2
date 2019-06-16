@@ -69,9 +69,33 @@ namespace AdministradorService
         public AdministradorDOM Autenticar(string NroDocumento, string Contrasenia)
         {
             var DAO = new AdministradorDAO();
-            var instAdministrador = DAO.Obtener(NroDocumento );
-            if (instAdministrador == null) return null;
-            return (instAdministrador.Contrasenia == Contrasenia) ? instAdministrador : null;
+            var instAdministrador = DAO.Obtener(NroDocumento);
+            if (instAdministrador == null) {
+
+                throw new WebFaultException<RepetidoException>
+                    (
+                        new RepetidoException()
+                        {
+                            Codigo = "101",
+                            Descripcion = "NroDocumento no existe"
+                        },
+                        System.Net.HttpStatusCode.Conflict
+                    );
+            }
+            if (instAdministrador.Contrasenia != Contrasenia)
+            {
+
+                throw new WebFaultException<RepetidoException>
+                    (
+                        new RepetidoException()
+                        {
+                            Codigo = "101",
+                            Descripcion = "Contraseña no es correcta"
+                        },
+                        System.Net.HttpStatusCode.Conflict
+                    );
+            }
+            return instAdministrador;
         }
     }
 }
