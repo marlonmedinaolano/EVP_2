@@ -1,0 +1,218 @@
+.ec-stars-wrapper {
+    /* Espacio entre los inline-block (los hijos, los `a`)
+       http://ksesocss.blogspot.com/2012/03/display-inline-block-y-sus-empeno-en.html */
+    font-size: 0;
+    /* Podríamos quitarlo,
+        pero de esta manera (siempre que no le demos padding),
+        sólo aplicará la regla .ec-stars-wrapper:hover a cuando
+        también se esté haciendo hover a alguna estrella */
+    display: inline-block;
+}
+.ec-stars-wrapper a {
+    text-decoration: none;
+    display: inline-block;
+    /* Volver a dar tamaño al texto */
+    font-size: 32px;
+    font-size: 2rem;
+
+    color: #888;
+}
+
+.ec-stars-wrapper:hover a {
+    color: rgb(39, 130, 228);
+}
+/*
+ * El selector de hijo, es necesario para aumentar la especifidad
+ */
+.ec-stars-wrapper > a:hover ~ a {
+    color: #888;
+}
+
+
+.cabecera{
+    background-color: #ffffff;
+    padding: 10px 0px;
+    border-bottom: solid #8cb420;
+    padding: 0 18px 0 22px;
+}
+
+.cab{
+    margin-top: 10px;
+}
+#banner {
+    background: url(../image/w2.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    background-position: center;
+    height: 720px;
+    padding-top: 250px;
+}
+. texto-titulo{
+    text-align: center;
+}
+.margenes{
+    background: #1f1f1fbd;
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    padding: 30px;
+}
+.n-all{
+    flex: 0 1 700px;
+    font-family: bariol-regular;
+
+}
+
+.nav-link{
+    color: #888 !important;
+    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+.btn-nav{
+    color: #fff;
+    background-color: #8cb420;
+    border-color: #8cb420;
+}
+
+.n-registrar{
+    justify-content: center;
+
+}
+
+
+.logo{
+    justify-content: center;
+}
+
+a{
+    color: #ea5a0b;
+}
+
+/*-- responsive --*/
+@media(max-width:480px){
+    .banner, .publicidad  {
+        padding: 2em 0;
+    }
+}
+
+.banner-filtro{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 4em 0;
+}
+
+.texto{
+    font-weight: 300;
+    color: #fff;
+    font-size: 27px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+.test2{
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+}
+
+.index-publicidad{
+
+    display: inline-block;
+    position: relative;
+    font-family: gotham-book,arial,sans-serif;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.3);
+    width: 22.95%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #8cb420;
+    border-color: #8cb420;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #ff8b3d;
+    border-color: #ff8b3d;
+}
+
+.texto-integrado{
+    color: #8cb420;
+}
+
+.footer{
+    background: #8cb420;
+}
+
+.card-text{
+    color: #ff8b3d;
+}
+.h6{
+    text-align: justify;
+}
+.h1{
+    color: white;
+}
+
+.alquiler{
+    border-top: 2px solid #ea5a0b;
+    background-color: #f2f2f2;
+}
+
+.contactar{
+    margin: 3px;
+}
+
+.fondo2{
+    background-color: #f4f2e6;
+}
+
+.fondo{
+    background-color: #e8e4d2;
+}
+
+.modal2{
+    margin-top: 50px;
+}
+
+.texto-modal{
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.color-texto-modal{
+    color: #6f6f6f;
+}
+
+
+.estrellita{
+    font-size: xx-large;
+}
+
+.puntuacion{
+    padding: 10px;
+}
+
+.paddin{
+    padding-top: 100px;
+}
+
+.somos{
+    color: #8cb420;
+}
+
+.img-somos{
+    width: 100%;
+}
+
+.img-contact{
+    margin: 10px auto;
+    display: block;
+}
+
+.div-image{
+    padding-left: 0px;
+
+}

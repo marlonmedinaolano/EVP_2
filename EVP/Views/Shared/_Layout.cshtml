@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Estacionamiento de vehículos particulares</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/miestilo.css">
+    <link rel="stylesheet" href="~/Content/modal.css">
+    <link rel="stylesheet" href="~/Content/button.css">
+    <link rel="stylesheet" href="~/Content/label.css">
+    <link href="~/Content/estilo.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="cabecera fixed-top">
+        <div class="container-fluid cab">
+            <div class="row">
+                <div class="col-sm-2">
+                    <img class="logo" src="~/image/logo.png" />
+                </div>
+                <div class="col-sm-8">
+                    <nav class="navbar navbar-expand-lg navbar-light n-all">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                                    @*<a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>*@
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Sobre Nosotros", "About", "Home", new { @class = "nav-link" })
+                                </li>
+
+                                @if (EVP.Security.SecurityLocal.IsAuthenticated)
+                                {
+                                    <li class="nav-item active">
+                <a class="nav-link" href="#">Alquiler</a>
+            </li>
+                                }
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Contactanos", "Contact", "Home", new { @class = "nav-link" })
+                                        @*<a class="nav-link" href="contactar.html">Contactanos</a>*@
+                                    </li>
+                                </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-sm-2">
+                    <div class="row n-registrar">
+                        <p>
+                            <a href="#" data-toggle="modal" data-target="#ModalRegistrarse">Registrate</a>
+                            o
+                            <a href="#" data-toggle="modal" data-target="#ModalIngresar">Ingresa</a>
+                        </p>
+                    </div>
+                    <div class="row n-registrar">
+                        <button type="button" class="btn btn-nav">Publica tu cochera</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+    <!-- Footer -->
+    <div class="container-build footer">
+        <footer class="page-footer font-small special-color-dark pt-4">
+            <!-- Footer Elements -->
+            <div class="container">
+                <!-- Social buttons -->
+                <ul class="list-unstyled list-inline text-center">
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-fb mx-1" href="#">
+                            <i class="fa fa-facebook"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-tw mx-1" href="#">
+                            <i class="fa fa-twitter"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-gplus mx-1" href="#">
+                            <i class="fa fa-google-plus"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-li mx-1" href="#">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-dribbble mx-1" href="#">
+                            <i class="fa fa-dribbble"> </i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Social buttons -->
+            </div>
+            <!-- Footer Elements -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                2018 Copyright:
+                <a href="https://mdbootstrap.com/education/bootstrap/"> EVP Cocheras</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+    <!-- Footer -->
+    <!-- index registrar Modal-->
+    <div class="modal fade " id="ModalRegistrarse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h5 class="modal-title id="exampleModalLabel">Regístrate fácil</h5>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <form class="needs-validation " style="padding: 1rem;" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label for="nombre" class="col-md-12 col-sm-2 col-form-label label-gray-left">Nombre:</label>
+                                                <div class="col-md-12 col-sm-10">
+                                                    <input type=text class="form-control" id="nombre" placeholder="Ingrese nombre"
+                                                           required="required">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="tipoUsu" class="col-md-12 col-sm-2 col-form-label label-gray-left">Tipo de usuario:</label>
+                                                <div class="col-md-12 col-sm-10">
+                                                    <select id="tipoUsu" class="custom-select">
+                                                        <option selected>Seleccione...</option>
+                                                        <option value="1">Due&ntilde;o</option>
+                                                        <option value="2">Cliente</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="password" class="col-md-12 col-sm-2 col-form-label label-gray-left">Contraseña:</label>
+                                                <div class="col-md-12 col-sm-10">
+                                                    <input type="password" class="form-control" id="password"
+                                                           placeholder="Ingrese contrase&ntilde;a"
+                                                           required="required">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group row">
+                                                <label for="apPaterno" class="col-md-12 col-sm-2 col-form-label label-gray-left">Apellidos</label>
+                                                <div class="col-md-12 col-sm-10">
+                                                    <input type="text" class="form-control" id="apPaterno" placeholder="Ingrese apellido paterno"
+                                                           required="required">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="numDoc" class="col-md-12 col-sm-2 col-form-label label-gray-left">Num. Doc. Identidad</label>
+                                                <div class="col-md-12 col-sm-10">
+                                                    <input type="text" class="form-control" id="numDoc"
+                                                           placeholder="Ingrese n&uacute;mero de documento de identidad"
+                                                           required="required">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="passwordConfirm" class="col-md-12 col-sm-2 col-form-label label-gray-left">Confirmar contrase&ntilde;a:</label>
+                                                <div class="col-md-12 col-sm-10">
+                                                    <input type="password" class="form-control" id="passwordConfirm"
+                                                           placeholder="Confirmar contrase&ntilde;a"
+                                                           required="required">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="modal-footer modal-footer-crud">
+                        <button type="button" class="btn btn-cancel">
+                            <div class="input-group-addon ">
+                                <i class="fa fa-times" data-dismiss="modal"> cancelar</i>
+                            </div>
+                        </button>
+                        <button type="button" class="btn btn-save">
+                            <div class="input-group-addon ">
+                                <i class="fa fa-thumbs-up" data-dismiss="modal"> guardar</i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- index ingresar Modal-->
+    <div class="modal fade " id="ModalIngresar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h5 class="modal-title id="exampleModalLabel">Ingresa aquí</h5>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <form class="needs-validation container" style="padding: 1rem;" novalidate>
+                                <div class="form-group row">
+                                    <input type=text class="col-md-12 form-control" id="NumDocumento" placeholder="ingresa número documento"
+                                           required="required">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="password" class="col-md-12 form-control" id="Contrasenia"
+                                           placeholder="Contrase&ntilde;a"
+                                           required="required">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-4 ">
+                                                <div class="text-center">
+                                                    <input class="form-check-input" name="TipoCuenta" type="radio" value="Cliente">Cliente
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="text-center">
+                                                    <input class="form-check-input" name="TipoCuenta" type="radio" value="Administrador">Due&ntilde;o
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="text-center">
+                                                    <input class="form-check-input" name="TipoCuenta" type="radio" value="Administrador">Administrador
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="modal-footer modal-footer-crud">
+                        <button type="button" class="btn btn-save">
+                            ¿Olvidaste tu Contraseña?
+                        </button>
+                        <button type="button" class="btn btn-save" id="btnIngresar">
+                            <div class="input-group-addon ">
+                                <i class="fa fa-thumbs-up"  > ingresar</i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $("#btnIngresar").click(function () {
+        if ($("#NumDocumento").val().length == 0 || $("#Contrasenia").val().length == 0) {
+            alert( "Complete datos requeridos");
+        }
+        else {
+             
+
+            $.ajax({
+                url: '@Url.Action("Login", "Home")',
+                data: JSON.stringify({
+                    NumDocumento: $("#NumDocumento").val(),
+                    Contrasenia: $("#Contrasenia").val(),
+                    TipoCuenta: $("input[name='TipoCuenta']:checked").val(),
+                }),
+                type: "POST",
+                cache: false,
+                async: true,
+                contentType: "application/json;charset=UTF-8",
+                datatype: "json",
+                success: function (data) {
+                    if (data == "Success") {
+                        document.location.href = '@Url.Action("Index", "Home")';
+                    }
+                    else {
+                        alert(data);
+                    } 
+                },
+                error: function (request, status, error) {
+                    if (request.status == 500) { 
+                    }
+                    if (request.status == 401) { 
+                    }
+                }
+            }); 
+        }
+
+    }); 
+
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

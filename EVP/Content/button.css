@@ -1,0 +1,73 @@
+.btn-add{
+	background: transparent;
+	right: 0;
+	position: absolute;
+	padding:  0;
+	margin:  0px 5px 0px 0px;
+  color: #4E4E4E;
+}
+.btn-registrase{
+	background: transparent;
+	right: 0; 
+	padding:  0;
+	margin:  0px 5px 0px 0px;
+  	color: #4E4E4E;
+}
+.btn-add-modal{
+	background: transparent;
+	right: 15px;
+	position: absolute;
+	padding:  0;
+	margin:  0px 5px 0px 0px;
+  	color: #4E4E4E;
+}
+.btn-delete-modal{
+	background: transparent;
+	padding: 10px 0px 0px 0px;
+	margin: 0.5rem;
+  	color: #4E4E4E;
+}
+.btn-entiendo-modal{
+	background: transparent;
+	right: 0;
+	bottom: 0;
+	position: absolute; 
+  	color: #FFFFFF;
+  	vertical-align: bottom;
+}
+.btn-edit{
+	background: transparent;
+	padding: 0px;
+	margin: 0.5rem;
+	color: #007bff;
+}
+.btn-delete{
+	background: transparent;
+	padding: 0px;
+	margin: 0.5rem;
+	color: #FF1C1C;
+}
+.btn-list{
+	background: transparent;
+	padding: 0px;
+	margin: 0.5rem;
+}
+.btn-save{
+	background: transparent;
+	padding: 10px 0px 0px 0px;
+	margin: 0.5rem;
+  color: #4E4E4E;
+}
+.btn-cancel{
+	background: transparent;
+	padding: 10px 0px 0px 0px;
+	margin: 0.5rem;
+  color: #FD2D2D;
+}
+
+.btn-sign{
+	background: transparent;
+	padding: 10px 0px 0px 0px;
+	margin: 0.5rem;
+  color: #4E4E4E;
+}

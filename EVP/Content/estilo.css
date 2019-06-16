@@ -1,0 +1,40 @@
+
+.control-label{
+    padding-top: 7px;
+    text-overflow: left;
+    font-weight: 500;
+    text-align: right;
+}
+
+
+
+
+
+.cajita{
+    background-color: #70c3d91f;
+    text-align: justify;
+}
+
+
+.imagenCajita{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.desplegable{
+    font-size: 15px;
+
+}
+
+.testCategoria{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.black{
+    background-color: #70c3d9;
+}
+.contact-1{
+    margin-bottom: 15px;
+}
+
