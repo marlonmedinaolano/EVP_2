@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34e15a75-732b-454b-8103-4cb46ea5dd9b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60537/Administrador.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Administrador.xsd" MetadataType="Schema" ID="3be99209-1109-4ded-bdfd-e40e3858063c" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd3" />
+    <MetadataFile FileName="Administrador1.xsd" MetadataType="Schema" ID="f3423b15-df8f-48b4-851c-f6f8b2c29d54" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd2" />
+    <MetadataFile FileName="Administrador2.xsd" MetadataType="Schema" ID="130be0b6-5807-4546-94a7-f7daff786be9" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd1" />
+    <MetadataFile FileName="Administrador3.xsd" MetadataType="Schema" ID="28cb41d1-cf42-4913-b8d3-31d58367f4e1" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd0" />
+    <MetadataFile FileName="Administrador.wsdl" MetadataType="Wsdl" ID="bc3c3236-3cc6-4b0f-9402-841762b3acdb" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?wsdl" />
+    <MetadataFile FileName="Administrador.disco" MetadataType="Disco" ID="f81ab567-d85c-4365-a75c-efdec91a870b" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
