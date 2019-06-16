@@ -1,4 +1,6 @@
-﻿using EVP.Security;
+﻿using EVP.AdministradorService;
+using EVP.Security;
+using System.ServiceModel;
 using System.Web.Mvc;
 
 namespace EVP.Controllers
@@ -27,6 +29,10 @@ namespace EVP.Controllers
                 {
                     return Json("Usuario o contraseña incorrectas", JsonRequestBehavior.AllowGet);
                 }
+            }
+            catch (FaultException<RepetidoException> error)
+            {
+                return Json(error.Detail.Descripcion, JsonRequestBehavior.AllowGet); 
             }
             catch (System.Exception ex)
             {

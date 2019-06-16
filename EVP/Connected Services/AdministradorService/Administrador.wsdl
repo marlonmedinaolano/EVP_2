@@ -3,9 +3,9 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:60537/Administrador.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60537/Administrador.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AdministradorService.Errores" />
       <xsd:import schemaLocation="http://localhost:60537/Administrador.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:60537/Administrador.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AdministradorService.Dominio" />
-      <xsd:import schemaLocation="http://localhost:60537/Administrador.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AdministradorService.Errores" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAdministrador_Autenticar_InputMessage">
@@ -14,6 +14,9 @@
   <wsdl:message name="IAdministrador_Autenticar_OutputMessage">
     <wsdl:part name="parameters" element="tns:AutenticarResponse" />
   </wsdl:message>
+  <wsdl:message name="IAdministrador_Autenticar_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/AdministradorService.Errores" name="detail" element="q1:RepetidoException" />
+  </wsdl:message>
   <wsdl:message name="IAdministrador_Crear_InputMessage">
     <wsdl:part name="parameters" element="tns:Crear" />
   </wsdl:message>
@@ -21,7 +24,7 @@
     <wsdl:part name="parameters" element="tns:CrearResponse" />
   </wsdl:message>
   <wsdl:message name="IAdministrador_Crear_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/AdministradorService.Errores" name="detail" element="q1:RepetidoException" />
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/AdministradorService.Errores" name="detail" element="q2:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IAdministrador_Obtener_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener" />
@@ -51,6 +54,7 @@
     <wsdl:operation name="Autenticar">
       <wsdl:input wsaw:Action="http://tempuri.org/IAdministrador/Autenticar" message="tns:IAdministrador_Autenticar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAdministrador/AutenticarResponse" message="tns:IAdministrador_Autenticar_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAdministrador/AutenticarRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IAdministrador_Autenticar_RepetidoExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Crear">
       <wsdl:input wsaw:Action="http://tempuri.org/IAdministrador/Crear" message="tns:IAdministrador_Crear_InputMessage" />
@@ -84,6 +88,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Crear">
       <soap:operation soapAction="http://tempuri.org/IAdministrador/Crear" style="document" />

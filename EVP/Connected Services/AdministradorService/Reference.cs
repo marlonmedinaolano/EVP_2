@@ -220,6 +220,7 @@ namespace EVP.AdministradorService {
     public interface IAdministrador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministrador/Autenticar", ReplyAction="http://tempuri.org/IAdministrador/AutenticarResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(EVP.AdministradorService.RepetidoException), Action="http://tempuri.org/IAdministrador/AutenticarRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/AdministradorService.Errores")]
         EVP.AdministradorService.AdministradorDOM Autenticar(string NroDocumento, string Contrasenia);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministrador/Autenticar", ReplyAction="http://tempuri.org/IAdministrador/AutenticarResponse")]
