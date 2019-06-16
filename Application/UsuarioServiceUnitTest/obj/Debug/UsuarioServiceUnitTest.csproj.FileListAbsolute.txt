@@ -16,3 +16,11 @@ D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\UsuarioServiceUnitTest\obj\D
 D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.csproj.CopyComplete
 D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.dll
 D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.pdb
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\bin\Debug\UsuarioServiceUnitTest.dll.config
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\bin\Debug\UsuarioServiceUnitTest.dll
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\bin\Debug\UsuarioServiceUnitTest.pdb
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.csprojAssemblyReference.cache
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.csproj.CoreCompileInputs.cache
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.csproj.CopyComplete
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.dll
+D:\MegaAsync\Sincronización\Universidad\Marlon\EVP\EVP_2\Application\UsuarioServiceUnitTest\obj\Debug\UsuarioServiceUnitTest.pdb
