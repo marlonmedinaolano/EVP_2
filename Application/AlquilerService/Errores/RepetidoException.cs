@@ -1,5 +1,5 @@
 ﻿
-namespace UsuarioService.Errores
+namespace AlquilerService.Errores
 {
     using System.Runtime.Serialization;
 

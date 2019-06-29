@@ -1,5 +1,5 @@
 ﻿
-namespace UsuarioService.Errores
+namespace ValoracionService.Errores
 {
     using System.Runtime.Serialization;
 

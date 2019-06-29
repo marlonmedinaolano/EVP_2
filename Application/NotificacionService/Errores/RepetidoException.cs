@@ -1,5 +1,5 @@
 ﻿
-namespace UsuarioService.Errores
+namespace NotificacionService.Errores
 {
     using System.Runtime.Serialization;
 

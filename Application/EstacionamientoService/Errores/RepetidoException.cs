@@ -1,5 +1,5 @@
 ﻿
-namespace UsuarioService.Errores
+namespace EstacionamientoService.Errores
 {
     using System.Runtime.Serialization;
 
