@@ -1,45 +1,115 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using System.Net;
 using System.ServiceModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UsuarioServiceUnitTest.UsuarioService;
+using System.Text;
+using System.Web.Script.Serialization;
 
 namespace UsuarioServiceUnitTest
 {
     [TestClass]
     public class UnitTest1
     {
+        UsuarioDOM instUsuarioDOM = new UsuarioDOM()
+        {
+            Nombre = "Marlon 3",
+            Apellidos = "Medina 3",
+            Celular = "123456789",
+            Contrasenia = "123",
+            Direccion = "LIMA PERÚ",
+            NumDocumento = "987765412",
+            Tipo = "D"
+        };
+
         [TestMethod]
-        public void TestMethod1()
+        public void CreacionUsuario()
         {
             try
             {
-                var inst = new UsuarioService.Service1Client().Crear(new UsuarioService.Usuario()
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string postdata = js.Serialize(instUsuarioDOM);
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:52165/Usuario.svc/Usuario");
+                request.Method = "POST";
+                request.ContentLength = data.Length;
+                request.ContentType = "application/json";
+                var requestStream = request.GetRequestStream();
+                requestStream.Write(data, 0, data.Length);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                var UsuarioRetorno = js.Deserialize<UsuarioDOM>(tramaJson);
+
+                if (UsuarioRetorno != null)
                 {
-                    Nombre = "Alumno",
-                    ApeMaterno = "ApeMaterno",
-                    ApePaterno = "ApePaterno",
-                    Direccion = "Lima",
-                    Email = "alumno@gmail.com",
-                    FechaNacimiento = "25/04/2019",
-                    TipoDocumento = "D",
-                    NroDocumento = "12547854",
-                    TipoUsuario = "A",
-                    Sexo = "M",
-                    Contrasenia = "123456"
-                });
-                if (inst != null)
-                {
-                    Assert.AreEqual("Alumno", inst.Nombre);
-                    Assert.AreEqual("ApePaterno", inst.ApePaterno);
+                    Assert.AreEqual("Marlon 3", UsuarioRetorno.Nombre);
+                    Assert.AreEqual("Medina 3", UsuarioRetorno.Apellidos);
                 }
 
             }
-            catch (FaultException<RepetidoException> error)
+            catch (WebException e)
             {
-                Assert.AreEqual("El NroDocumento ya existe", error.Detail.Descripcion);
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                HttpStatusCode codigo = ((HttpWebResponse)e.Response).StatusCode;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                var error = js.Deserialize<RepetidoException>(tramaJson);
+                Assert.AreEqual("101", error.Codigo);
+                Assert.AreEqual("El Número documento ya existe", error.Descripcion);
             }
 
 
         }
+
+        [TestMethod]
+        public void CreacionUsuarioDuplicado()
+        {
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            string postdata = js.Serialize(instUsuarioDOM);
+            byte[] data = Encoding.UTF8.GetBytes(postdata);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:52165/Usuario.svc/Usuario");
+            request.Method = "POST";
+            request.ContentLength = data.Length;
+            request.ContentType = "application/json";
+            var requestStream = request.GetRequestStream();
+            requestStream.Write(data, 0, data.Length);
+            HttpWebResponse response = null;
+            try
+            {
+                 response = (HttpWebResponse)request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                var UsuarioRetorno = js.Deserialize<UsuarioDOM>(tramaJson);
+                Assert.AreEqual("Marlon 3", UsuarioRetorno.Nombre);
+                Assert.AreEqual("Medina 3", UsuarioRetorno.Apellidos);
+            }
+            catch (WebException e)
+            { 
+                HttpStatusCode codigo = ((HttpWebResponse)e.Response).StatusCode;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                var error = js.Deserialize<RepetidoException>(tramaJson);
+                Assert.AreEqual("101", error.Codigo);
+                Assert.AreEqual("El Número documento ya existe", error.Descripcion);
+            }
+
+
+        }
+
+        [TestMethod]
+        public void ObtenerUsuario()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:52165/Usuario.svc/Usuario/12345678");
+            request.Method = "GET";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string tramaJson = reader.ReadToEnd();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            var UsuarioRetorno = js.Deserialize<UsuarioDOM>(tramaJson);
+
+            Assert.AreEqual("Marlon", UsuarioRetorno.Nombre);
+            Assert.AreEqual("Medina", UsuarioRetorno.Apellidos);
+        }
+
     }
 }
