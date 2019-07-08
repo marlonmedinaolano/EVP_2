@@ -1,5 +1,5 @@
 ﻿
-namespace GestionarUsuarioService.Errores
+namespace GestionarAsistenteService.Errores
 {
     using System.Runtime.Serialization;
 

@@ -12,23 +12,22 @@ namespace GestionarCredencialService
         {
             try
             {
-                //return (new RestClient<UsuarioDOM>().POST(UniversidadCrear, Local.WCF_GestionarPermisoService + "Universidad")).GetAwaiter().GetResult();
-                 
-            }
-            catch (System.Exception)
-            {
+                return (new RestClient<UsuarioDOM>().GET("http://localhost:32165/Usuario.svc/UsuarioAutenticar/" + NumDocumento + "/" + Contrasenia).GetAwaiter().GetResult());
 
-                throw;
             }
-            throw new WebFaultException<RepetidoException>
-                (
-                    new RepetidoException()
-                    {
-                        Codigo = "101",
-                        Descripcion = "Error al enviar el correo"
-                    },
-                    System.Net.HttpStatusCode.Conflict
-                );
+            catch (System.Net.WebException ex)
+            {
+                var RestClientException = ex.Serializer(); 
+                throw new WebFaultException<RepetidoException>
+                    (
+                        new RepetidoException()
+                        {
+                            Codigo = RestClientException.Codigo,
+                            Descripcion = RestClientException.Descripcion
+                        },
+                        System.Net.HttpStatusCode.Conflict
+                    );
+            }
         }
     }
 }
