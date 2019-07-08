@@ -11,8 +11,8 @@ namespace NotificacionService
 
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "Notificar", ResponseFormat = WebMessageFormat.Json)]
-        void Notificar(string correo);
+        [WebInvoke(Method = "POST", UriTemplate = "EnviarCorreo/{correo}", ResponseFormat = WebMessageFormat.Json)]
+        string EnviarCorreo(string correo);
          
     }
 }
