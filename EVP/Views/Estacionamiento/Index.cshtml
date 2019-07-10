@@ -172,7 +172,7 @@
 </div>
 
 
-<div class="modal" tabindex="-1" role="dialog" id="ModalComentar" data-backdrop="static" data-keyboard="false">
+<div class="modal"  tabindex="-1" role="dialog" id="ModalComentar" data-backdrop="static" data-keyboard="false">
 
     <div class="modal-dialog" role="document">
         <div class="ibox modal-content" id="iboxComentar">
@@ -263,14 +263,15 @@
                 datatype: "json",
                 success: function (data) {
                     $('#iboxComentar').children('.ibox-content').toggleClass('sk-loading');
-                    if (data.status) {
+                    if (data.status) { 
                         swal({
                             title: "Valoración",
                             text: data.value,
-                            type: "Success",
+                            type: "success",
                             showCancelButton: false,
                             confirmButtonText: "OK",
                         });
+                        $('#ModalComentar').modal('toggle');
                     }
                     else {
                         swal({

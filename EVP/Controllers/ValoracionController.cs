@@ -4,6 +4,7 @@ using EVP.Libreria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
@@ -18,13 +19,14 @@ namespace EVP.Controllers
             try
             {
                 ValoracionDOM.IdUsuario = (Security.SecurityLocal.Usuario as UsuarioDOM).IdUsuario;
-                var respuesta = (new RestClient<string>().POST(ValoracionDOM, "http://localhost:52164/Valoracion.svc/Valoracion").GetAwaiter().GetResult());
+                var respuesta = (new RestClient<ValoracionDOM>().POST(ValoracionDOM, "http://localhost:53971/Valoracion.svc/Valoracion").GetAwaiter().GetResult());
 
-                return Json(new { status = true , value = respuesta }, JsonRequestBehavior.AllowGet);
+                return Json(new { status = true , value = "valoración registrada" }, JsonRequestBehavior.AllowGet);
             }
-            catch (FaultException<RepetidoException> error)
+            catch (WebException ex)
             {
-                return Json(new { status = false, value = error.Detail.Descripcion }, JsonRequestBehavior.AllowGet);
+                var RestClientException = ex.Serializer(); 
+                return Json(new { status = false, value = RestClientException.Descripcion }, JsonRequestBehavior.AllowGet);
             }
             catch (System.Exception ex)
             {
