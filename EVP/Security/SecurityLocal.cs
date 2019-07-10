@@ -6,15 +6,13 @@
 
 namespace EVP.Security
 {
-    using EVP.AdministradorService;
+    using EVP.Dominio;
     using System;
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
     using System.Web;
 
     public class SecurityLocal
     { 
-        public static AdministradorDOM Usuario
+        public static object Usuario
         {
             get
             {
@@ -24,10 +22,10 @@ namespace EVP.Security
                     if (inst == null)
                     {
                         HttpContext.Current.Response.StatusCode = 401;
-                        return new AdministradorDOM() { IdAdministrador = -1 };
+                        return null;
                     }
                     else
-                        return System.Web.HttpContext.Current.Session["SessionUsuario"] as AdministradorDOM;
+                        return System.Web.HttpContext.Current.Session["SessionUsuario"] ;
                 }
                 catch (Exception)
                 {

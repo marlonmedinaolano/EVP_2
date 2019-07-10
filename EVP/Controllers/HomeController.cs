@@ -1,4 +1,6 @@
 ﻿using EVP.AdministradorService;
+using EVP.Dominio;
+using EVP.Libreria;
 using EVP.Security;
 using System.ServiceModel;
 using System.Web.Mvc;
@@ -17,26 +19,24 @@ namespace EVP.Controllers
         {
             try
             {
-                if (TipoCuenta != "Administrador") throw new System.Exception("Solo se permite autenticación para los administrador");
-                var instChartLocal = new AdministradorService.AdministradorClient().Autenticar(NumDocumento, Contrasenia);
-                if (instChartLocal != null)
-                {
-                    System.Web.HttpContext.Current.Session["SessionIsAuthenticated"] = true;
-                    System.Web.HttpContext.Current.Session["SessionUsuario"] = instChartLocal;
-                    return Json("Success", JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Json("Usuario o contraseña incorrectas", JsonRequestBehavior.AllowGet);
-                }
+                object usuarioObject = null;
+                if (TipoCuenta == "Cliente" || TipoCuenta == "Duenio")//Autenticación REST
+                    usuarioObject = (new RestClient<UsuarioDOM>().GET("http://localhost:42165/Usuario.svc/UsuarioAutenticar/" + NumDocumento + "/" + Contrasenia).GetAwaiter().GetResult());
+                
+                else if (TipoCuenta == "Administrador")//Autenticación SOAP
+                    usuarioObject = new AdministradorClient().Autenticar(NumDocumento, Contrasenia);
+
+                System.Web.HttpContext.Current.Session["SessionUsuario"] = usuarioObject ?? throw new System.Exception("Usuario o contraseña incorrectas");
+                System.Web.HttpContext.Current.Session["SessionIsAuthenticated"] = true;
+                return Json(new { status = true }, JsonRequestBehavior.AllowGet);
             }
             catch (FaultException<RepetidoException> error)
             {
-                return Json(error.Detail.Descripcion, JsonRequestBehavior.AllowGet); 
+                return Json(new {status = false , value= error.Detail.Descripcion } , JsonRequestBehavior.AllowGet); 
             }
             catch (System.Exception ex)
             {
-                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+                return Json(new { status = false, value = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
 

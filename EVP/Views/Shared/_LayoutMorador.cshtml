@@ -1,48 +1,4 @@
-﻿@using EVP.Dominio;
-@using EVP.AdministradorService;
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Estacionamiento de vehículos particulares</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Content/miestilo.css">
-    <link rel="stylesheet" href="~/Content/modal.css">
-    <link rel="stylesheet" href="~/Content/button.css">
-    <link rel="stylesheet" href="~/Content/label.css">
-    <link href="~/Content/estilo.css" rel="stylesheet" />
-
-     
-    <link href="http://sharedcss.com/cdn/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
-    @*<link href="http://sharedcss.com/cdn/inspinia/css/plugins/toastr/toastr.min.css" rel="stylesheet">*@
-    @*<link href="http://sharedcss.com/cdn/inspinia/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">*@
-    <link href="http://sharedcss.com/cdn/inspinia/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-    <link href="http://sharedcss.com/cdn/inspinia/css/animate.css" rel="stylesheet">
-    <link href="http://sharedcss.com/cdn/inspinia/css/style.css" rel="stylesheet">
-    <link href="http://sharedcss.com/cdn/inspinia/css/plugins/sweetalert/sweetalert.css" rel="stylesheet"> 
-    <script src="http://sharedcss.com/cdn/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="http://sharedcss.com/cdn/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="http://sharedcss.com/cdn/inspinia/js/inspinia.js"></script>
-    <script src="http://sharedcss.com/cdn/inspinia/js/plugins/sweetalert/sweetalert.min.js"></script>
-    <script src="http://sharedcss.com/cdn/inspinia/js/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-    <style>
-        body {
-            background-color: white !important;
-        }
-        .footer {
-            position:inherit !important;
-        }
-    </style>
-</head>
-<body class="paddin">
+﻿
     <div class="cabecera fixed-top">
         <div class="container-fluid cab">
             <div class="row">
@@ -58,43 +14,30 @@
                                     @*<a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>*@
                                 </li>
                                 <li class="nav-item">
-                                    @Html.ActionLink("Sobre Nosotros", "About", "Home", new { area = "" }, new { @class = "nav-link" }) 
+                                    @Html.ActionLink("Sobre Nosotros", "About", "Home", new { @class = "nav-link" })
                                 </li>
-                                 
-                                <li class="nav-item active">
-                                    @Html.ActionLink("Estacionamientos", "Index", "Estacionamiento", new { area = "" }, new { @class = "nav-link" }) 
-                                </li>
-                                <li class="nav-item"> 
-                                    @Html.ActionLink("Contactanos", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
-                                </li>
-                            </ul>
+
+                                @if (EVP.Security.SecurityLocal.IsAuthenticated)
+                                {
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Alquiler</a>
+                                    </li>
+                                }
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Contactanos", "Contact", "Home", new { @class = "nav-link" })
+                                        @*<a class="nav-link" href="contactar.html">Contactanos</a>*@
+                                    </li>
+                                </ul>
                         </div>
                     </nav>
                 </div>
                 <div class="col-sm-2">
                     <div class="row n-registrar">
-
-                        @if (EVP.Security.SecurityLocal.IsAuthenticated)
-                        {
-                            var objectUser = EVP.Security.SecurityLocal.Usuario;
-                            @( (objectUser is UsuarioDOM) ? ((UsuarioDOM)objectUser).Nombre : ((AdministradorDOM)objectUser).Nombre)
-                            using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm"/*, @class = "navbar-right"*/ }))
-                            {
-                                @Html.AntiForgeryToken()
-
-                                <a class="right-sidebar-toggle" id="btnCerrarSession" href="javascript:document.getElementById('logoutForm').submit()">
-                                    <i class="fa fa-power-off" aria-hidden="true"></i>
-                                </a>
-                            }
-                        }
-                        else
-                        {
-                            <p>
-                                <a href="#" data-toggle="modal" data-target="#ModalRegistrarse">Registrate</a>
-                                o
-                                <a href="#" data-toggle="modal" data-target="#ModalIngresar" data-backdrop="static" data-keyboard="false">Ingresa</a>
-                            </p>
-                        }
+                        <p>
+                            <a href="#" data-toggle="modal" data-target="#ModalRegistrarse">Registrate</a>
+                            o
+                            <a href="#" data-toggle="modal" data-target="#ModalIngresar"  data-backdrop="static" data-keyboard="false">Ingresa</a>
+                        </p>
                     </div>
                     <div class="row n-registrar">
                         <button type="button" class="btn btn-nav">Publica tu cochera</button>
@@ -103,8 +46,6 @@
             </div>
         </div>
     </div>
-
-    @RenderBody()
 
     <!-- Footer -->
     <div class="container-build footer">
@@ -159,7 +100,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-11">
-                                <h5 class="modal-title" id="exampleModalLabel">Regístrate fácil</h5>
+                                <h5 class="modal-title id="exampleModalLabel">Regístrate fácil</h5>
                             </div>
                             <div class="col-md-1">
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -289,9 +230,14 @@
                                         <div class="row">
                                             <div class="col-md-4 ">
                                                 <div class="text-center">
-                                                    <input class="form-check-input" name="TipoCuenta" type="radio" value="Cliente">Cliente / Due&ntilde;o
+                                                    <input class="form-check-input" name="TipoCuenta" type="radio" value="Cliente">Cliente
                                                 </div>
-                                            </div> 
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="text-center">
+                                                    <input class="form-check-input" name="TipoCuenta" type="radio" value="Duenio">Due&ntilde;o
+                                                </div>
+                                            </div>
                                             <div class="col-md-4">
                                                 <div class="text-center">
                                                     <input class="form-check-input" name="TipoCuenta" type="radio" value="Administrador">Administrador
@@ -325,7 +271,7 @@
             alert( "Complete datos requeridos");
         }
         else {
-
+             
 
             $('#iboxlogin').children('.ibox-content').toggleClass('sk-loading');
             $.ajax({
@@ -352,21 +298,18 @@
                             type: "warning",
                             showCancelButton: false,
                             confirmButtonText: "OK",
-                        });
-                    }
+                        }); 
+                    } 
                 },
                 error: function (request, status, error) {
-                    if (request.status == 500) {
+                    if (request.status == 500) { 
                     }
-                    if (request.status == 401) {
+                    if (request.status == 401) { 
                     }
                 }
-            });
+            }); 
         }
 
-    });
+    }); 
 
     </script>
-    @RenderSection("scripts", required: false)
-</body>
-</html>

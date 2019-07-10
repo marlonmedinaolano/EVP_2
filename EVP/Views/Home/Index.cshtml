@@ -1,124 +1,32 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+@using EVP.Dominio;
+@if (EVP.Security.SecurityLocal.IsAuthenticated)
+{
+    if (EVP.Security.SecurityLocal.Usuario is UsuarioDOM)
+    {
+        var Usuario = EVP.Security.SecurityLocal.Usuario as UsuarioDOM;
+        if (Usuario.Tipo == "C")
+        {
+            //es cliente
+            @Html.Partial("IndexClienteMorador")
+        }
+        else
+        {
+            Layout = null;
+            //es dueño
+            @Html.Partial("IndexDuenioAdministrador")
+        }
+    }
+    else
+    {
+        Layout = null;
+        //Es administrador
+        @Html.Partial("IndexDuenioAdministrador")
+    }
 
-<div class="container-build" id="banner">
-    <div class="container margenes">
-        <div class="row texto">
-            <div class="col-sm-12 texto-titulo">
-                <h1 class="h1">Busca entre mas de <span class="texto-integrado"> 10,000</span> avisos de cocheras</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4 test2">
-                <input type="text" placeholder="Buscar por distrito, descripcion o tipo" class="form-control">
-            </div>
-            <div class="col-sm-2 test2">
-                <select id="cboTipo" class="custom-select d-block w-100">
-                    <option value="">Precio por hora</option>
-                    <option value="1">Menos de 10 soles</option>
-                    <option value="2">Entre 10 a 20 soles</option>
-                    <option value="3">Entre 20 a 30 soles</option>
-                    <option value="4">Más de 30 soles</option>
-                </select>
-            </div>
-            <div class="col-sm-2 test2">
-                <select id="cboTipo" class="custom-select d-block w-100">
-                    <option value="">Puntuacion</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            <div class="col-sm-2 test2">
-                <button type="button" class="btn btn-primary form-control" onclick="location.href = 'alquiler.html';">Buscar</button>
-            </div>
-            <div class="col-sm-1"></div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <hr>
-            <h2>Estacionamientos que tenemos para ti</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card">
-                <a href="#"><img class="card-img-top imagen-publicidad" src="~/image/p1.jpg" alt="Card image cap"></a>
-                <div class="card-body">
-                    <h5 class="card-text">Miraflores</h5>
-                    <p>Desde s/10 la hora</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <a href="#"><img class="card-img-top imagen-publicidad" src="~/image/p2.jpg" alt="Card image cap"></a>
-                <div class="card-body">
-                    <h5 class="card-text">Barranco</h5>
-                    <p>Desde s/10 la hora</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <a href="#"><img class="card-img-top imagen-publicidad" src="~/image/p3.jpg" alt="Card image cap"></a>
-                <div class="card-body">
-                    <h5 class="card-text">La Molina</h5>
-                    <p>Desde s/10 la hora</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <a href="#"><img class="card-img-top imagen-publicidad" src="~/image/p4.jpg" alt="Card image cap"></a>
-                <div class="card-body">
-                    <h5 class="card-text">San Isidro</h5>
-                    <p>Desde s/10 la hora</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <hr>
-            <h2>Noticias y Consejos</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-text">Decoracion y acabados</h5>
-                    <h6 class="h6">Dale una pincelada de arte a tu hogar.</h6>
-                    <br>
-                </div>
-                <img class="card-img-top" src="~/image/n1.jpg" alt="Card image cap">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-text">Mercado inmobiliario</h5>
-                    <h6 class="h6">Brena, un distrito en la mira del sector inmobiliario</h6>
-                </div>
-                <img class="card-img-top" src="~/image/n2.jpg" alt="Card image cap">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-text">Estacionamientos libre</h5>
-                    <h6 class="h6">El estacionamiento en los centros comerciales sera libre</h6>
-                </div>
-                <img class="card-img-top" src="~/image/n3.jpg" alt="Card image cap">
-            </div>
-        </div>
-    </div>
-    <br><br>
-</div>
+}
+else
+{
+    //es morador
+    @Html.Partial("IndexClienteMorador")
+}

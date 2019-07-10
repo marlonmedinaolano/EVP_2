@@ -128,7 +128,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EstacionamientoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValoracionController.cs" />
+    <Compile Include="Dominio\UsuarioDOM.cs" />
+    <Compile Include="Dominio\ValoracionDOM.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,9 +154,11 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\button.css" />
     <Content Include="Content\card.css" />
     <Content Include="Content\container.css" />
+    <Content Include="Content\dataTables.bootstrap4.css" />
     <Content Include="Content\estilo.css" />
     <Content Include="Content\icon.css" />
     <Content Include="Content\input.css" />
@@ -183,10 +189,16 @@
     <Content Include="image\somos.png" />
     <Content Include="image\w1.jpg" />
     <Content Include="image\w2.jpg" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.js" />
     <Content Include="Scripts\demo\chart-area-demo.js" />
     <Content Include="Scripts\demo\chart-bar-demo.js" />
     <Content Include="Scripts\demo\chart-pie-demo.js" />
     <Content Include="Scripts\demo\datatables-demo.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\sb-admin.js" />
     <Content Include="Scripts\sb-admin.min.js" />
     <Content Include="Web.config" />
@@ -203,10 +215,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\IndexClienteMorador.cshtml" />
+    <Content Include="Views\Home\IndexDuenioAdministrador.cshtml" />
+    <Content Include="Views\Estacionamiento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Valoracion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -233,6 +249,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AdministradorService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EVP.Libreria\EVP.Libreria.csproj">
+      <Project>{d6072554-6992-4feb-90d3-5e1b680d5084}</Project>
+      <Name>EVP.Libreria</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
