@@ -16,20 +16,26 @@ namespace ValoracionService
 
         public ValoracionDOM Crear(ValoracionDOM Parametro)
         {
-            var DAO = new ValoracionDAO();
-            //if (DAO.Obtener(Parametro.NumDocumento) != null) // Ya existe
-            //{
-            //    throw new WebFaultException<RepetidoException>
-            //        (
-            //            new RepetidoException()
-            //            {
-            //                Codigo = "101",
-            //                Descripcion = "El Número documento ya existe"
-            //            },
-            //            System.Net.HttpStatusCode.Conflict
-            //        );
-            //}
-            return DAO.Crear(Parametro);
+            try
+            {
+                var DAO = new ValoracionDAO();
+                //if (DAO.Obtener(Parametro.NumDocumento) != null) // Ya existe
+                //{
+                //}
+                return DAO.Crear(Parametro);
+            }
+            catch (Exception ex)
+            {
+                throw new WebFaultException<RepetidoException>
+                    (
+                        new RepetidoException()
+                        {
+                            Codigo = "400",
+                            Descripcion = ex.Message
+                        },
+                        System.Net.HttpStatusCode.Conflict
+                    );
+            }
         }
 
         public string Eliminar(string IdValoracion)

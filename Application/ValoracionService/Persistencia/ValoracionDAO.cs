@@ -13,16 +13,16 @@ namespace ValoracionService.Persistencia
                                                             @IdUsuario, 
                                                             @IdEstacionamiento, 
                                                             @Comentario, 
-                                                            @Puntuacion );";
+                                                            @Puntuacion,1 );";
             using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
             {
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sql, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@Tipo", Entidad.IdUsuario));
-                    comando.Parameters.Add(new SqlParameter("@Nombre", Entidad.IdEstacionamiento));
-                    comando.Parameters.Add(new SqlParameter("@Apellidos", Entidad.Comentario));
-                    comando.Parameters.Add(new SqlParameter("@NumDocumento", Entidad.Puntuacion)); 
+                    comando.Parameters.Add(new SqlParameter("@IdUsuario", Entidad.IdUsuario));
+                    comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", Entidad.IdEstacionamiento));
+                    comando.Parameters.Add(new SqlParameter("@Comentario", Entidad.Comentario));
+                    comando.Parameters.Add(new SqlParameter("@Puntuacion", Entidad.Puntuacion)); 
                     comando.ExecuteNonQuery();
                 }
             } 
