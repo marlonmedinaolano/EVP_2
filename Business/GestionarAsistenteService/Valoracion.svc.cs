@@ -1,6 +1,9 @@
 ﻿using EVP.Libreria;
 using GestionarAsistenteService.Dominio;
+using GestionarAsistenteService.Errores;
 using System.Collections.Generic;
+using System.Net;
+using System.ServiceModel.Web;
 
 namespace GestionarAsistenteService
 {
@@ -13,9 +16,21 @@ namespace GestionarAsistenteService
                 return (new RestClient<ValoracionDOM>().POST(Parametro, "http://localhost:52164/Valoracion.svc/Valoracion").GetAwaiter().GetResult());
 
             }
-            catch (System.Exception)
+            catch (WebException ex)
             {
-                throw;
+
+
+
+                var RestClientException = ex.Serializer();
+                throw new WebFaultException<RepetidoException>
+                    (
+                        new RepetidoException()
+                        {
+                            Codigo = "400",
+                            Descripcion = RestClientException.Descripcion
+                        },
+                        System.Net.HttpStatusCode.Conflict
+                    );
             }
         }
 
