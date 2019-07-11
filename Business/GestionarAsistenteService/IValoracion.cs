@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 
+
 namespace GestionarAsistenteService
 {
     [ServiceContract]
@@ -27,3 +28,4 @@ namespace GestionarAsistenteService
         List<ValoracionDOM> Listar();
     }
 }
+

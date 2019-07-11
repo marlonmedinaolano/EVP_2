@@ -2,6 +2,7 @@
 using GestionarAsistenteService.Dominio;
 using System.Collections.Generic;
 
+
 namespace GestionarAsistenteService
 {
     public class Alquiler : IAlquiler
@@ -11,6 +12,7 @@ namespace GestionarAsistenteService
             try
             {
                 return (new RestClient<AlquilerDOM>().POST(Parametro, "http://sharedcss.com/evp/application/AlquilerService/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
+
 
             }
             catch (System.Exception)
@@ -72,3 +74,4 @@ namespace GestionarAsistenteService
         }
     }
 }
+
