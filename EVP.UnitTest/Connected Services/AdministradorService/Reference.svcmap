@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a90e3632-ccb6-4cb1-9995-df594272f1d8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Administrador.xsd" MetadataType="Schema" ID="685a08dd-7597-45e8-aba5-8198c7177cfa" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd2" />
+    <MetadataFile FileName="Administrador1.xsd" MetadataType="Schema" ID="d2587048-d5f4-4b23-8db7-d411af95be25" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd0" />
+    <MetadataFile FileName="Administrador.disco" MetadataType="Disco" ID="2dc8fd4d-0152-4e77-87e2-c21d80ae5b6c" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?disco" />
+    <MetadataFile FileName="Administrador2.xsd" MetadataType="Schema" ID="8389d347-abfd-4284-ba74-5ac265014800" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd3" />
+    <MetadataFile FileName="Administrador.wsdl" MetadataType="Wsdl" ID="576efb75-b0fc-40fe-ba51-d7f0e881ce77" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?wsdl" />
+    <MetadataFile FileName="Administrador3.xsd" MetadataType="Schema" ID="382935e1-de8e-4e77-9c1d-9d51e78fb120" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
