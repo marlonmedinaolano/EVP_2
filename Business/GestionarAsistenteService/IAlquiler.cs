@@ -8,6 +8,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
+
 namespace GestionarAsistenteService
 {
     [ServiceContract]
@@ -17,6 +18,7 @@ namespace GestionarAsistenteService
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "Alquiler", ResponseFormat = WebMessageFormat.Json)]
         AlquilerDOM Crear(AlquilerDOM Parametro);
+
 
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Alquiler/{IdEstacimionamiento}", ResponseFormat = WebMessageFormat.Json)]
@@ -35,3 +37,4 @@ namespace GestionarAsistenteService
         List<AlquilerDOM> Listar();
     }
 }
+

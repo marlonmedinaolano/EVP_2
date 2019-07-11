@@ -12,3 +12,4 @@ namespace GestionarPublicidadService
         void Consultar();
     }
 }
+

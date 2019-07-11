@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 
+
 namespace GestionarPublicidadService
 {
     [ServiceContract]
@@ -18,3 +19,4 @@ namespace GestionarPublicidadService
         void Eliminar();
     }
 }
+
