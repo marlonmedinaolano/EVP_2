@@ -12,7 +12,7 @@ namespace GestionarCredencialService
         {
             try
             {
-                return (new RestClient<UsuarioDOM>().GET("http://localhost:32165/Usuario.svc/UsuarioAutenticar/" + NumDocumento + "/" + Contrasenia).GetAwaiter().GetResult());
+                return (new RestClient<UsuarioDOM>().GET("http://sharedcss.com/evp/application/UsuarioService/Usuario.svc/UsuarioAutenticar/" + NumDocumento + "/" + Contrasenia).GetAwaiter().GetResult());
 
             }
             catch (System.Net.WebException ex)

@@ -19,8 +19,8 @@ namespace GestionarAsistenteService
         AlquilerDOM Crear(AlquilerDOM Parametro);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "Alquiler/{IdEstacionamiento}", ResponseFormat = WebMessageFormat.Json)]
-        AlquilerDOM Obtener(string IdEstacionamiento);
+        [WebInvoke(Method = "GET", UriTemplate = "Alquiler/{IdEstacimionamiento}", ResponseFormat = WebMessageFormat.Json)]
+        AlquilerDOM Obtener(string IdEstacimionamiento);
 
         [OperationContract]
         [WebInvoke(Method = "PUT", UriTemplate = "Alquiler", ResponseFormat = WebMessageFormat.Json)]

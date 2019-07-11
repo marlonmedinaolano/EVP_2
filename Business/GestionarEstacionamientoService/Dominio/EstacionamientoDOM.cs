@@ -7,7 +7,7 @@ namespace GestionarEstacionamientoService.Dominio
     public class EstacionamientoDOM
     {
         [DataMember]
-        public int IdEstacionamiento { get; set; }
+        public int IdEstacimionamiento { get; set; }
         [DataMember]
         public int IdUsuario { get; set; }
         [DataMember]

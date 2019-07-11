@@ -10,7 +10,7 @@ namespace GestionarUsuarioService
         {
             try
             {
-                return (new RestClient<UsuarioDOM>().POST( Parametro , "http://localhost:32165/Usuario.svc/Usuario").GetAwaiter().GetResult());
+                return (new RestClient<UsuarioDOM>().POST( Parametro , "http://sharedcss.com/evp/application/UsuarioService/Usuario.svc/Usuario").GetAwaiter().GetResult());
 
             }
             catch (System.Exception )
@@ -23,7 +23,7 @@ namespace GestionarUsuarioService
         {
             try
             {
-                return (new RestClient<string>().DELETE("http://localhost:32165/Usuario.svc/Usuario/" + IdUsuario).GetAwaiter().GetResult());
+                return (new RestClient<string>().DELETE("http://sharedcss.com/evp/application/UsuarioService/Usuario.svc/Usuario/" + IdUsuario).GetAwaiter().GetResult());
 
             }
             catch (System.Exception )
@@ -36,7 +36,7 @@ namespace GestionarUsuarioService
         {
             try
             {
-                return (new RestClient<List<UsuarioDOM>>().GET("http://localhost:32165/Usuario.svc/Usuario").GetAwaiter().GetResult());
+                return (new RestClient<List<UsuarioDOM>>().GET("http://sharedcss.com/evp/application/UsuarioService/Usuario.svc/Usuario").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -49,7 +49,7 @@ namespace GestionarUsuarioService
         {
             try
             {
-                return (new RestClient<UsuarioDOM>().PUT(Parametro, "http://localhost:32165/Usuario.svc/Usuario").GetAwaiter().GetResult());
+                return (new RestClient<UsuarioDOM>().PUT(Parametro, "http://sharedcss.com/evp/application/UsuarioService/Usuario.svc/Usuario").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -60,7 +60,7 @@ namespace GestionarUsuarioService
 
         public UsuarioDOM Obtener(string NumDocumento)
         {
-            return (new RestClient<UsuarioDOM>().GET("http://localhost:32165/Usuario.svc/Usuario/" + NumDocumento).GetAwaiter().GetResult());
+            return (new RestClient<UsuarioDOM>().GET("http://sharedcss.com/evp/application/UsuarioService/Usuario.svc/Usuario/" + NumDocumento).GetAwaiter().GetResult());
         }
 
         public string ValidarPIN(string NumDocumento, string PIN)

@@ -10,7 +10,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<AlquilerDOM>().POST(Parametro, "http://localhost:12165/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
+                return (new RestClient<AlquilerDOM>().POST(Parametro, "http://sharedcss.com/evp/application/AlquilerService/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -23,7 +23,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<string>().DELETE("http://localhost:12165/Alquiler.svc/Alquiler/" + IdAlquiler).GetAwaiter().GetResult());
+                return (new RestClient<string>().DELETE("http://sharedcss.com/evp/application/AlquilerService/Alquiler.svc/Alquiler/" + IdAlquiler).GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -36,7 +36,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<List<AlquilerDOM>>().GET("http://localhost:12165/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
+                return (new RestClient<List<AlquilerDOM>>().GET("http://sharedcss.com/evp/application/AlquilerService/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -49,7 +49,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<AlquilerDOM>().PUT(Parametro, "http://localhost:12165/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
+                return (new RestClient<AlquilerDOM>().PUT(Parametro, "http://sharedcss.com/evp/application/AlquilerService/Alquiler.svc/Alquiler").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -58,11 +58,11 @@ namespace GestionarEstacionamientoService
             }
         }
 
-        public AlquilerDOM Obtener(string IdEstacionamiento)
+        public AlquilerDOM Obtener(string IdEstacimionamiento)
         {
             try
             {
-                return (new RestClient<AlquilerDOM>().GET("http://localhost:12165/Alquiler.svc/Alquiler/" + IdEstacionamiento).GetAwaiter().GetResult());
+                return (new RestClient<AlquilerDOM>().GET("http://sharedcss.com/evp/application/AlquilerService/Alquiler.svc/Alquiler/" + IdEstacimionamiento).GetAwaiter().GetResult());
 
             }
             catch (System.Exception)

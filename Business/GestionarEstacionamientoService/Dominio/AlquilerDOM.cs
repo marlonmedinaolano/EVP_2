@@ -12,7 +12,7 @@ namespace GestionarEstacionamientoService.Dominio
         [DataMember]
         public int IdUsuario{ get; set; }
         [DataMember]
-        public int IdEstacionamiento { get; set; }
+        public int IdEstacimionamiento { get; set; }
 
         [DataMember]
         public string FechaInicio { get; set; }

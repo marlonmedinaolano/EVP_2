@@ -10,7 +10,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<EstacionamientoDOM>().POST(Parametro, "http://localhost:22165/Estacionamiento.svc/Estacionamiento").GetAwaiter().GetResult());
+                return (new RestClient<EstacionamientoDOM>().POST(Parametro, "http://sharedcss.com/evp/application/EstacionamientoService/Estacionamiento.svc/Estacionamiento").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -19,11 +19,11 @@ namespace GestionarEstacionamientoService
             }
         }
         
-        public string Eliminar(string IdEstacionamiento)
+        public string Eliminar(string IdEstacimionamiento)
         {
             try
             {
-                return (new RestClient<string>().DELETE("http://localhost:22165/Estacionamiento.svc/Estacionamiento/" + IdEstacionamiento).GetAwaiter().GetResult());
+                return (new RestClient<string>().DELETE("http://sharedcss.com/evp/application/EstacionamientoService/Estacionamiento.svc/Estacionamiento/" + IdEstacimionamiento).GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -36,7 +36,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<List<EstacionamientoDOM>>().GET("http://localhost:22165/Estacionamiento.svc/Estacionamiento").GetAwaiter().GetResult());
+                return (new RestClient<List<EstacionamientoDOM>>().GET("http://sharedcss.com/evp/application/EstacionamientoService/Estacionamiento.svc/Estacionamiento").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -49,7 +49,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<EstacionamientoDOM>().PUT(Parametro,"http://localhost:22165/Estacionamiento.svc/Estacionamiento").GetAwaiter().GetResult());
+                return (new RestClient<EstacionamientoDOM>().PUT(Parametro,"http://sharedcss.com/evp/application/EstacionamientoService/Estacionamiento.svc/Estacionamiento").GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
@@ -62,7 +62,7 @@ namespace GestionarEstacionamientoService
         {
             try
             {
-                return (new RestClient<EstacionamientoDOM>().GET("http://localhost:22165/Estacionamiento.svc/Estacionamiento/" + IdUsuario).GetAwaiter().GetResult());
+                return (new RestClient<EstacionamientoDOM>().GET("http://sharedcss.com/evp/application/EstacionamientoService/Estacionamiento.svc/Estacionamiento/" + IdUsuario).GetAwaiter().GetResult());
 
             }
             catch (System.Exception)
