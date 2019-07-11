@@ -49,7 +49,7 @@ namespace EstacionamientoService.Persistencia
                             {
                                 Encontrado = new EstacionamientoDOM()
                                 {
-                                    IdEstacionamiento = (int)resultado["IdEstacionamiento"],
+                                    IdEstacimionamiento = (int)resultado["IdEstacimionamiento"],
                                     IdUsuario = (int)resultado["IdUsuario"], 
                                     Direccion = (string)resultado["Direccion"], 
                                     Telefono = (string)resultado["Telefono"],
@@ -73,13 +73,13 @@ namespace EstacionamientoService.Persistencia
             EstacionamientoDOM Modificado = null;
             try
             {
-                string sql = @"UPDATE dbo.Estacionamiento SET Direccion=@Direccion , Telefono=@Telefono, PrecioHora = @PrecioHora, Dimencion=@Dimencion WHERE IdEstacionamiento=@IdEstacionamiento";
+                string sql = @"UPDATE dbo.Estacionamiento SET Direccion=@Direccion , Telefono=@Telefono, PrecioHora = @PrecioHora, Dimencion=@Dimencion WHERE IdEstacimionamiento=@IdEstacimionamiento";
                 using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
                 {
                     conexion.Open();
                     using (SqlCommand comando = new SqlCommand(sql, conexion))
                     {
-                        comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", Entidad.IdEstacionamiento)); 
+                        comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", Entidad.IdEstacimionamiento)); 
                         comando.Parameters.Add(new SqlParameter("@Direccion", Entidad.Direccion));
                         comando.Parameters.Add(new SqlParameter("@Telefono", Entidad.Telefono));
                         comando.Parameters.Add(new SqlParameter("@PrecioHora", Entidad.PrecioHora));
@@ -96,15 +96,15 @@ namespace EstacionamientoService.Persistencia
             return Modificado;
         }
 
-        public void Eliminar(string IdEstacionamiento)
+        public void Eliminar(string IdEstacimionamiento)
         {
-            string sql = "UPDATE dbo.Estacionamiento SET FlgActivo=@FlgActivo WHERE IdEstacionamiento=@IdEstacionamiento";
+            string sql = "UPDATE dbo.Estacionamiento SET FlgActivo=@FlgActivo WHERE IdEstacimionamiento=@IdEstacimionamiento";
             using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
             {
                 conexion.Open();
                 using (SqlCommand comando = new SqlCommand(sql, conexion))
                 {
-                    comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", System.Data.SqlDbType.Int, 0, IdEstacionamiento)); 
+                    comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", System.Data.SqlDbType.Int, 0, IdEstacimionamiento)); 
                     comando.Parameters.Add(new SqlParameter("@FlgActivo", 0));
                     comando.ExecuteNonQuery();
                 }
@@ -125,7 +125,7 @@ namespace EstacionamientoService.Persistencia
                         { 
                             Encontrados.Add(new EstacionamientoDOM()
                             {
-                                IdEstacionamiento = (int)resultado["IdEstacionamiento"],
+                                IdEstacimionamiento = (int)resultado["IdEstacimionamiento"],
                                 IdUsuario = (int)resultado["IdUsuario"],
                                 Direccion = (string)resultado["Direccion"],
                                 Telefono = (string)resultado["Telefono"],

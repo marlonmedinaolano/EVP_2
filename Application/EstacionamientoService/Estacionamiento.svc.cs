@@ -16,12 +16,12 @@ namespace EstacionamientoService
             return DAO.Crear(Parametro);
         }
 
-        public string Eliminar(string IdEstacionamiento)
+        public string Eliminar(string IdEstacimionamiento)
         {
             try
             {
                 var DAO = new EstacionamientoDAO();
-                DAO.Eliminar(IdEstacionamiento);
+                DAO.Eliminar(IdEstacimionamiento);
                 return "exitoso";
             }
             catch (Exception ex)

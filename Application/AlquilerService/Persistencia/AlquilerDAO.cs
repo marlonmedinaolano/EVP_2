@@ -11,7 +11,7 @@ namespace AlquilerService.Persistencia
         public AlquilerDOM Crear(AlquilerDOM Entidad)
         { 
             string sql = @"INSERT INTO dbo.Alquiler VALUES (@IdUsuario, 
-                                                            @IdEstacionamiento, 
+                                                            @IdEstacimionamiento, 
                                                             @FechaInicio, 
                                                             @FechaFin, 
                                                             @Hora,1);";
@@ -21,7 +21,7 @@ namespace AlquilerService.Persistencia
                 using (SqlCommand comando = new SqlCommand(sql, conexion))
                 {
                     comando.Parameters.Add(new SqlParameter("@IdUsuario", Entidad.IdUsuario));
-                    comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", Entidad.IdEstacionamiento));
+                    comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", Entidad.IdEstacimionamiento));
                     comando.Parameters.Add(new SqlParameter("@FechaInicio", Entidad.FechaInicio));
                     comando.Parameters.Add(new SqlParameter("@FechaFin", Entidad.FechaFin));
                     comando.Parameters.Add(new SqlParameter("@Hora", Entidad.Hora)); 
@@ -30,18 +30,18 @@ namespace AlquilerService.Persistencia
             } 
             return Entidad;
         }
-        public AlquilerDOM Obtener(string IdEstacionamiento)
+        public AlquilerDOM Obtener(string IdEstacimionamiento)
         {
             AlquilerDOM Encontrado = null;
             try
             {
-                string sql = "SELECT * FROM dbo.Alquiler WHERE IdEstacionamiento= @IdEstacionamiento";
+                string sql = "SELECT * FROM dbo.Alquiler WHERE IdEstacimionamiento= @IdEstacimionamiento";
                 using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
                 {
                     conexion.Open();
                     using (SqlCommand comando = new SqlCommand(sql, conexion))
                     {
-                        comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", IdEstacionamiento));
+                        comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", IdEstacimionamiento));
                         using (SqlDataReader resultado = comando.ExecuteReader())
                         {
                             if (resultado.Read())
@@ -52,7 +52,7 @@ namespace AlquilerService.Persistencia
                                     FechaFin = (string)resultado["FechaFin"],
                                     FechaInicio = (string)resultado["FechaInicio"],
                                     Hora = (int)resultado["Hora"],
-                                    IdEstacionamiento = (int)resultado["IdEstacionamiento"],
+                                    IdEstacimionamiento = (int)resultado["IdEstacimionamiento"],
                                     IdUsuario = (int)resultado["IdUsuario"], 
                                 };
                             }
@@ -80,7 +80,7 @@ namespace AlquilerService.Persistencia
                     {
                         comando.Parameters.Add(new SqlParameter("@IdAlquiler", Entidad.IdAlquiler));
                         comando.Parameters.Add(new SqlParameter("@IdUsuario", Entidad.IdUsuario));
-                        comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", Entidad.IdEstacionamiento));
+                        comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", Entidad.IdEstacimionamiento));
                         comando.Parameters.Add(new SqlParameter("@FechaInicio", Entidad.FechaInicio));
                         comando.Parameters.Add(new SqlParameter("@FechaFin", Entidad.FechaFin));
                         comando.Parameters.Add(new SqlParameter("@Hora", Entidad.Hora));
@@ -129,7 +129,7 @@ namespace AlquilerService.Persistencia
                                 FechaFin = (string)resultado["FechaFin"],
                                 FechaInicio = (string)resultado["FechaInicio"],
                                 Hora = (int)resultado["Hora"],
-                                IdEstacionamiento = (int)resultado["IdEstacionamiento"],
+                                IdEstacimionamiento = (int)resultado["IdEstacimionamiento"],
                                 IdUsuario = (int)resultado["IdUsuario"],
                             });
                         }

@@ -42,10 +42,10 @@ namespace AlquilerService
             return DAO.Modificar(Parametro);
         }
 
-        public AlquilerDOM Obtener(string IdEstacionamiento)
+        public AlquilerDOM Obtener(string IdEstacimionamiento)
         {
             var DAO = new AlquilerDAO();
-            return DAO.Obtener(IdEstacionamiento);
+            return DAO.Obtener(IdEstacimionamiento);
         } 
     }
 }

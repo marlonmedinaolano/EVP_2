@@ -24,8 +24,8 @@ namespace EstacionamientoService
         EstacionamientoDOM Modificar(EstacionamientoDOM Parametro);
 
         [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "Estacionamiento/{IdEstacionamiento}", ResponseFormat = WebMessageFormat.Json)]
-        string Eliminar(string IdEstacionamiento);
+        [WebInvoke(Method = "DELETE", UriTemplate = "Estacionamiento/{IdEstacimionamiento}", ResponseFormat = WebMessageFormat.Json)]
+        string Eliminar(string IdEstacimionamiento);
 
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Estacionamiento", ResponseFormat = WebMessageFormat.Json)]

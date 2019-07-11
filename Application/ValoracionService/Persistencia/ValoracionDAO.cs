@@ -11,7 +11,7 @@ namespace ValoracionService.Persistencia
         { 
             string sql = @"INSERT INTO dbo.Valoracion VALUES (
                                                             @IdUsuario, 
-                                                            @IdEstacionamiento, 
+                                                            @IdEstacimionamiento, 
                                                             @Comentario, 
                                                             @Puntuacion,1 );";
             using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
@@ -20,7 +20,7 @@ namespace ValoracionService.Persistencia
                 using (SqlCommand comando = new SqlCommand(sql, conexion))
                 {
                     comando.Parameters.Add(new SqlParameter("@IdUsuario", Entidad.IdUsuario));
-                    comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", Entidad.IdEstacionamiento));
+                    comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", Entidad.IdEstacimionamiento));
                     comando.Parameters.Add(new SqlParameter("@Comentario", Entidad.Comentario));
                     comando.Parameters.Add(new SqlParameter("@Puntuacion", Entidad.Puntuacion)); 
                     comando.ExecuteNonQuery();
@@ -28,18 +28,18 @@ namespace ValoracionService.Persistencia
             } 
             return Entidad;
         }
-        public ValoracionDOM Obtener(string IdEstacionamiento)
+        public ValoracionDOM Obtener(string IdEstacimionamiento)
         {
             ValoracionDOM Encontrado = null;
             try
             {
-                string sql = "SELECT * FROM dbo.Valoracion WHERE IdEstacionamiento= @IdEstacionamiento";
+                string sql = "SELECT * FROM dbo.Valoracion WHERE IdEstacimionamiento= @IdEstacimionamiento";
                 using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
                 {
                     conexion.Open();
                     using (SqlCommand comando = new SqlCommand(sql, conexion))
                     {
-                        comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", IdEstacionamiento));
+                        comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", IdEstacimionamiento));
                         using (SqlDataReader resultado = comando.ExecuteReader())
                         {
                             if (resultado.Read())
@@ -47,7 +47,7 @@ namespace ValoracionService.Persistencia
                                 Encontrado = new ValoracionDOM()
                                 {
                                     IdUsuario = (int)resultado["IdUsuario"],
-                                    IdEstacionamiento = (int)resultado["IdEstacionamiento"],
+                                    IdEstacimionamiento = (int)resultado["IdEstacimionamiento"],
                                     Comentario = (string)resultado["Comentario"],
                                     Puntuacion = (int)resultado["Puntuacion"] 
                                 };
@@ -68,7 +68,7 @@ namespace ValoracionService.Persistencia
             ValoracionDOM Modificado = null;
             try
             {
-                string sql = @"UPDATE dbo.Valoracion SET IdUsuario=@IdUsuario , IdEstacionamiento=@IdEstacionamiento, Comentario = @Comentario, Puntuacion=@Puntuacion, 
+                string sql = @"UPDATE dbo.Valoracion SET IdUsuario=@IdUsuario , IdEstacimionamiento=@IdEstacimionamiento, Comentario = @Comentario, Puntuacion=@Puntuacion, 
                                 Direccion = @Direccion, Celular=@Celular WHERE IdValoracion=@IdValoracion";
                 using (SqlConnection conexion = new SqlConnection(Local.ConnectionString))
                 {
@@ -77,7 +77,7 @@ namespace ValoracionService.Persistencia
                     {
                         comando.Parameters.Add(new SqlParameter("@IdValoracion", Entidad.IdValoracion));
                         comando.Parameters.Add(new SqlParameter("@IdUsuario", Entidad.IdUsuario));
-                        comando.Parameters.Add(new SqlParameter("@IdEstacionamiento", Entidad.IdEstacionamiento));
+                        comando.Parameters.Add(new SqlParameter("@IdEstacimionamiento", Entidad.IdEstacimionamiento));
                         comando.Parameters.Add(new SqlParameter("@Comentario", Entidad.Comentario));
                         comando.Parameters.Add(new SqlParameter("@Puntuacion", Entidad.Puntuacion));
                         comando.ExecuteNonQuery();
@@ -123,7 +123,7 @@ namespace ValoracionService.Persistencia
                             {
                                 IdValoracion = (int)resultado["IdValoracion"],
                                 Comentario = (string)resultado["Comentario"],
-                                IdEstacionamiento = (int)resultado["IdEstacionamiento"],
+                                IdEstacimionamiento = (int)resultado["IdEstacimionamiento"],
                                 IdUsuario = (int)resultado["IdUsuario"],
                                 Puntuacion = (int)resultado["Puntuacion"],
                             });
