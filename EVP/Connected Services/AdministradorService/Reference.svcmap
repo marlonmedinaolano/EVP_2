@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:60537/Administrador.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Administrador.xsd" MetadataType="Schema" ID="b37723fb-dcc1-4592-a10a-c2addcfaa580" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd3" />
-    <MetadataFile FileName="Administrador1.xsd" MetadataType="Schema" ID="1ba89207-c627-4a0b-a6d1-e24585c81dad" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd2" />
-    <MetadataFile FileName="Administrador2.xsd" MetadataType="Schema" ID="d45c94d9-888c-44d5-ab38-0eca9b5d3de2" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd1" />
-    <MetadataFile FileName="Administrador3.xsd" MetadataType="Schema" ID="9e5f1d16-17e0-4c5a-9d52-4bd290d132c7" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?xsd=xsd0" />
-    <MetadataFile FileName="Administrador.wsdl" MetadataType="Wsdl" ID="4222991d-ecee-494f-a369-fbc73b0d5aba" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?wsdl" />
-    <MetadataFile FileName="Administrador.disco" MetadataType="Disco" ID="a23f7b2b-f974-4da3-b07d-d63ae8626a4b" SourceId="1" SourceUrl="http://localhost:60537/Administrador.svc?disco" />
+    <MetadataFile FileName="Administrador4.xsd" MetadataType="Schema" ID="050df627-ee8b-4aba-b32f-9d7411b86163" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd2" />
+    <MetadataFile FileName="Administrador41.xsd" MetadataType="Schema" ID="1e6f5c79-9859-4e74-bf23-ab3395b6cceb" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd0" />
+    <MetadataFile FileName="Administrador1.disco" MetadataType="Disco" ID="a81ee5ba-da2e-4c76-89eb-948d0d15d753" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?disco" />
+    <MetadataFile FileName="Administrador42.xsd" MetadataType="Schema" ID="fc29dab1-4dcd-4f97-b95a-c74baf2336ea" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd3" />
+    <MetadataFile FileName="Administrador1.wsdl" MetadataType="Wsdl" ID="9b9cec0a-ac92-4828-ad6e-d62119234432" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?wsdl" />
+    <MetadataFile FileName="Administrador43.xsd" MetadataType="Schema" ID="504503b0-13dd-40da-a52f-7bf8130a264d" SourceId="1" SourceUrl="http://sharedcss.com/evp/application/AdministradorService/Administrador.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

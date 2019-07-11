@@ -21,7 +21,7 @@ namespace EVP.Controllers
             {
                 object usuarioObject = null;
                 if (TipoCuenta == "Cliente" || TipoCuenta == "Duenio")//Autenticación REST
-                    usuarioObject = (new RestClient<UsuarioDOM>().GET("http://localhost:42165/Usuario.svc/UsuarioAutenticar/" + NumDocumento + "/" + Contrasenia).GetAwaiter().GetResult());
+                    usuarioObject = (new RestClient<UsuarioDOM>().GET(ServiceRest.GestionarCredencialService + "Usuario.svc/UsuarioAutenticar/" + NumDocumento + "/" + Contrasenia).GetAwaiter().GetResult());
                 
                 else if (TipoCuenta == "Administrador")//Autenticación SOAP
                     usuarioObject = new AdministradorClient().Autenticar(NumDocumento, Contrasenia);

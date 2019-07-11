@@ -19,7 +19,7 @@ namespace EVP.Controllers
             try
             {
                 ValoracionDOM.IdUsuario = (Security.SecurityLocal.Usuario as UsuarioDOM).IdUsuario;
-                var respuesta = (new RestClient<ValoracionDOM>().POST(ValoracionDOM, "http://localhost:53971/Valoracion.svc/Valoracion").GetAwaiter().GetResult());
+                var respuesta = (new RestClient<ValoracionDOM>().POST(ValoracionDOM, ServiceRest.GestionarAsistenteService +"Valoracion.svc/Valoracion").GetAwaiter().GetResult());
 
                 return Json(new { status = true , value = "valoración registrada" }, JsonRequestBehavior.AllowGet);
             }

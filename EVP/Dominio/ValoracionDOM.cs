@@ -7,7 +7,7 @@ namespace EVP.Dominio
     {
         public int IdValoracion { get; set; }
         public int IdUsuario { get; set; }
-        public int IdEstacionamiento { get; set; }
+        public int IdEstacimionamiento { get; set; }
         public string Comentario { get; set; }
         public int Puntuacion { get; set; } 
 

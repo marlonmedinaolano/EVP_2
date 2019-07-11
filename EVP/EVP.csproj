@@ -142,11 +142,25 @@
     <Compile Include="Security\SecurityPrivilege.cs" />
     <Compile Include="Security\SecurityRequiredAttribute.cs" />
     <Compile Include="Security\SecurityUrlParamete.cs" />
+    <Compile Include="ServiceRest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AdministradorService\Administrador.disco" />
+    <None Include="Connected Services\AdministradorService\Administrador1.wsdl" />
+    <None Include="Connected Services\AdministradorService\Administrador4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AdministradorService\Administrador41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AdministradorService\Administrador42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AdministradorService\Administrador43.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\AdministradorService\configuration91.svcinfo" />
     <None Include="Connected Services\AdministradorService\configuration.svcinfo" />
+    <None Include="Connected Services\AdministradorService\Administrador1.disco" />
     <Content Include="Connected Services\AdministradorService\EVP.AdministradorService.AdministradorDOM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -229,19 +243,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Connected Services\AdministradorService\Administrador.wsdl" />
-    <None Include="Connected Services\AdministradorService\Administrador.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AdministradorService\Administrador1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AdministradorService\Administrador2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AdministradorService\Administrador3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
