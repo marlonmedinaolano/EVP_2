@@ -1,10 +1,4 @@
-﻿/*******************************************************
-'* CREADO POR: COMPUTER SYSTEMS SOLUTION
-'*			   Cristian Hernandez Villo
-'* FECHA CREA: 19/12/2018
-********************************************************/
-
-namespace EVP.Security
+﻿namespace EVP.Security
 {
     using EVP.Dominio;
     using System;
